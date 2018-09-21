@@ -37,6 +37,6 @@ There a few different ways to handle view updates in the View layer. A common on
 
 [Slide 9 - UI Updates: LiveData]
 
-An alternative approach, and the one we'll use in this course, is to use the LiveData class in the Android Architecture Components library from Google. We'll also use the ViewModel Architecture Component for our view models. The View layer observes the LiveData in the ViewModel, and new data sent along in the LiveData object causes the View to update with the new data. One of the main benefits of using the Architecture Components in general is that they are lifecycle-aware, and allow you to avoid the need to add code to handle configuration changes such as device rotation.
+An alternative approach is to use the LiveData class in the Android Architecture Components library from Google. We'll also use the ViewModel Architecture Component for our view models. The View layer observes the LiveData in the ViewModel, and new data sent along in the LiveData object causes the View to update with the new data. One of the main benefits of using the Architecture Components in general is that they are lifecycle-aware, and allow you to avoid the need to add code to handle configuration changes such as device rotation. We'll look at both LiveData and Data Binding in the course.
 
 Ok, that's enough theory for now. In the next video, we'll start coding by building out the Model layer of the Creaturemon app.

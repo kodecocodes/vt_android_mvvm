@@ -17,6 +17,6 @@ Creaturemon is the name of the sample project we'll use in the course. The app l
 
 [Slide 4 - Course Outline]
 
-We'll first build out the screen that lets you create new characters. We'll walk though creating and testing the Model, which will be independent of the ViewModel and View layers. We'll setup a repository to let you store character data in a Room database. Next, we'll create a ViewModel and add unit tests for the logic contained in the ViewModel. Then we'll connect the ViewModel to the repository to allow you to save creatures into app database. And we'll wrap up with a challenge for you to finish the app by creating a ViewModel for the screen that shows a list of all the characters.
+We'll first build out the screen that lets you create new characters. We'll walk though creating and testing the Model, which will be independent of the ViewModel and View layers. We'll setup a repository to let you store character data in a Room database. Next, we'll create a ViewModel and add unit tests for the logic contained in the ViewModel. Then we'll connect the ViewModel to the repository to allow you to save creatures into the app database. You'll then have a chance to try out what you've learned by creating a ViewModel for the screen that shows a list of all the characters. Finally, we'll wrap up the course by looking at how to use Data Binding with the a ViewModel.
 
 There's a lot to do, but before we dive into the code, let's get started in the next video by taking a look at the ideas and concepts behind MVVM.
