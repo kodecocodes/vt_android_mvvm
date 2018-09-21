@@ -4,11 +4,8 @@
 
 ```kotlin
   @Test
-  fun testCanSaveCreatureBlankName() {
-    val attributes = CreatureAttributes(10, 3, 7)
-    val stubCreature = Creature(attributes, 87, "", 1)
-    `when`(mockGenerator.generateCreature(attributes)).thenReturn(stubCreature)
-     creatureViewModel.intelligence = 10
+  fun testCantSaveCreatureWithBlankName() {
+    creatureViewModel.intelligence = 10
     creatureViewModel.strength = 3
     creatureViewModel.endurance = 7
     creatureViewModel.drawable = 1
