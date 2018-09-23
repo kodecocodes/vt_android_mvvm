@@ -82,7 +82,7 @@ class CreatureViewModel(private val generator: CreatureGenerator = CreatureGener
       repository.saveCreature(creature)
       saveLiveData.postValue(true)
     } else {
-      saveLiveData.postValue(true)
+      saveLiveData.postValue(false)
     }
   }
 
