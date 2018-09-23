@@ -40,7 +40,6 @@ class CreatureViewModel(private val generator: CreatureGenerator = CreatureGener
   private val creatureLiveData = MutableLiveData<Creature>()
 
   fun getCreatureLiveData(): LiveData<Creature> = creatureLiveData
-
   var name = ""
   var intelligence = 0
   var strength = 0

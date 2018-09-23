@@ -99,6 +99,7 @@ class CreatureActivity : AppCompatActivity(), AvatarAdapter.AvatarListener {
     endurance.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
       override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         viewModel.attributeSelected(AttributeType.ENDURANCE, position)
+
       }
       override fun onNothingSelected(parent: AdapterView<*>?) {}
     }
@@ -132,7 +133,6 @@ class CreatureActivity : AppCompatActivity(), AvatarAdapter.AvatarListener {
         avatarImageView.setImageResource(creature.drawable)
         nameEditText.setText(creature.name)
       }
-
     })
   }
 
