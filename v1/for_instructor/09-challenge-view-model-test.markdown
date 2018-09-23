@@ -1,5 +1,15 @@
+# Android MVVM
+# 09 - Challenge: View Model Test
 
+## [Slide - Challenge]
 
+You first challenge for the course is to add another test on the CreatureViewModel to make sure that a creature without strength cannot be saved. The test will be very similar to the test we already wrote to make sure that a creature without a name cannot be saved.
+
+Go ahead an pause the video, and take a shot at writing this new test. Unpause when you're ready to see a solution.
+
+## Demo
+
+Add a new test method testCantSaveCreatureWithoutStrength()
 
 
 ```kotlin
@@ -15,3 +25,6 @@
   }
 ```
 
+We've set the strength to zero, and then called canSaveCreature() and asserted that the return value is false.
+
+Go ahead and run the tests to see that they all pass.
