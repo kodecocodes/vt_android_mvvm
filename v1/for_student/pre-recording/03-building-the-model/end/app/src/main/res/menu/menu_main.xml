@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:context="com.raywenderlich.android.myapplication.MainActivity">
+  <item
+    android:id="@+id/action_clear_all"
+    android:orderInCategory="100"
+    android:title="@string/clear_all_creatures"
+    app:showAsAction="never" />
+</menu>

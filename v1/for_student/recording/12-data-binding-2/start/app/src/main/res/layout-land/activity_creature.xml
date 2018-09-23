@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".view.creature.CreatureActivity">
+
+  <TextView
+    android:id="@+id/tapLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/tap_to_set_avatar"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toBottomOf="@+id/avatarImageView"
+    app:layout_constraintEnd_toEndOf="@+id/avatarImageView"
+    app:layout_constraintStart_toStartOf="@+id/avatarImageView"
+    app:layout_constraintTop_toTopOf="@+id/avatarImageView"
+    tools:text="@string/tap_to_set_avatar" />
+
+  <ImageView
+    android:id="@+id/avatarImageView"
+    android:layout_width="160dp"
+    android:layout_height="160dp"
+    android:layout_marginEnd="8dp"
+    android:contentDescription="@string/avatar"
+    app:layout_constraintEnd_toStartOf="@+id/guideline"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <android.support.constraint.Guideline
+    android:id="@+id/guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.5" />
+
+  <TextView
+    android:id="@+id/hitPointsLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    android:text="@string/hit_points"
+    android:textSize="28sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/guideline"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:text="@string/hit_points" />
+
+  <TextView
+    android:id="@+id/hitPoints"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="72sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/guideline"
+    app:layout_constraintTop_toBottomOf="@+id/hitPointsLabel"
+    tools:text="999" />
+
+  <Button
+    android:id="@+id/saveButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    android:text="@string/save"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/nameEditText"
+    app:layout_constraintTop_toBottomOf="@+id/hitPoints" />
+
+  <TextView
+    android:id="@+id/nameLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    android:text="@string/name"
+    android:textSize="18sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
+
+  <EditText
+    android:id="@+id/nameEditText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    android:hint="@string/creature_name"
+    android:inputType="text"
+    app:layout_constraintBaseline_toBaselineOf="@+id/nameLabel"
+    app:layout_constraintEnd_toStartOf="@+id/saveButton"
+    app:layout_constraintStart_toEndOf="@+id/nameLabel" />
+
+  <TextView
+    android:id="@+id/intelligenceLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    android:text="@string/intelligence"
+    android:textSize="18sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
+
+  <Spinner
+    android:id="@+id/intelligence"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    app:layout_constraintBaseline_toBaselineOf="@+id/intelligenceLabel"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/intelligenceLabel" />
+
+  <TextView
+    android:id="@+id/strengthLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    android:text="@string/strength"
+    android:textSize="18sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/intelligenceLabel" />
+
+  <Spinner
+    android:id="@+id/strength"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    app:layout_constraintBaseline_toBaselineOf="@+id/strengthLabel"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/intelligenceLabel" />
+
+  <TextView
+    android:id="@+id/enduranceLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    android:text="@string/endurance"
+    android:textSize="18sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/strengthLabel" />
+
+  <Spinner
+    android:id="@+id/endurance"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    app:layout_constraintBaseline_toBaselineOf="@+id/enduranceLabel"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/intelligenceLabel" />
+
+</android.support.constraint.ConstraintLayout>
