@@ -1,0 +1,16 @@
+<resources>
+  <string name="app_name">Creaturemon</string>
+  <string name="avatar">Avatar</string>
+  <string name="tap_to_set_avatar">Tap to set avatar</string>
+  <string name="intelligence">Intelligence</string>
+  <string name="strength">Strength</string>
+  <string name="endurance">Endurance</string>
+  <string name="name">Name</string>
+  <string name="creature_name">Creature name</string>
+  <string name="hit_points">HIT POINTS</string>
+  <string name="save">SAVE</string>
+  <string name="error_saving_creature">Please complete all fields.</string>
+  <string name="creature_saved">Creature saved!</string>
+  <string name="clear_all_creatures">Clear All Creatures</string>
+  <string name="add_creature">Add Creature</string>
+</resources>
