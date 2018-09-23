@@ -20,14 +20,14 @@ Since we're using ViewModel and LiveData from Android Architecture components, w
 testImplementation "android.arch.core:core-testing:$arch_comp_version"
 ```
 
-Next, in the test package. Add a viewmodel subpackage.
-
-Add a new test class named CreatureViewModelTest.
+Open CreatureViewModel, select the class name, and hit option+return on Mac or alt+enter on PC to create an associated test class.
 
 ```kotlin
 class CreatureViewModelTest {
 }
 ```
+
+We confirm that the new file is in the viewmodel subpackage of the test right.
 
 Add a property for the viewmodel being tested.
 

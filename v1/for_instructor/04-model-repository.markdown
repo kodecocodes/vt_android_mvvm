@@ -51,7 +51,7 @@ data class Creature(
 
 We also set the name prooperty as the non-null primary key for a creature. We could have also made a separate class for the Room entity, and then provided mapping functions to convert between Creatures and Creature entities, but for this simple app we'll just make Creature an entity directly. In a production app, you would likely want to create such a mapping layer between the model class and the repository.
 
-Since we're using Room, we need to use a CreatureDao for accessing our creatures. There's an empty Car in the model room package. We now add insert, clear and getAllCreatures methods to the Dao.
+Since we're using Room, we need to use a CreatureDao for accessing our creatures. There's an empty Dao in the model room package. We now add insert, clear and getAllCreatures methods to the Dao.
 
 ```kotlin
 interface CreatureDao {

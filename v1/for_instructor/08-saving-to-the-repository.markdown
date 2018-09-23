@@ -90,4 +90,6 @@ Build and run the app now.
 
 I'll create and save a couple of new creatures.
 
+If I try saving a creature with no name, I see the error toast telling me to fill out all fields.
+
 We can use Device File Explorer to see that the Room database file for storing creratures has been created. In a later video, we'll pull creatures out of the database for display.

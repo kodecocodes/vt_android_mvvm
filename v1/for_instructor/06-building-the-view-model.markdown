@@ -48,7 +48,7 @@ The ViewModel needs to keep track of the selected name and other properties for 
   var drawable = 0
 ```
 
-Also add a latent property for the Creature being created.
+Also add a lateinit property for the Creature being created.
 
 ```kotlin
 lateinit var creature: Creature
@@ -146,11 +146,19 @@ Next we need to handle events being sent on the LiveData in the ViewModel. Add a
 Inside the observer, update the hitPoints value for the creature, and the avatar image and name views.
 
 ```kotlin
-      creature?.let {
-        hitPoints.text = creature.hitPoints.toString()
+    
+      hitPoints.text = creature.hitPoints.toString()
         avatarImageView.setImageResource(creature.drawable)
         nameEditText.setText(creature.name)
-      }
+     
+```
+
+We need to wrap these in a let expression since the creature passed to the observer is nullable.
+
+```kotlin
+creature?.let {
+    ...
+}
 ```
 
 Now add a call to configureLiveDataObservers() in onCreate():

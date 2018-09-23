@@ -112,7 +112,7 @@ Back in the test class, add the test for the hit point calculation. We first arr
 
 We use an intelligence value of 7, strength of 3, and endurance of 10. The resulting hitPoints from the hitPoint formula are 84, so we can create an expectedCreature that we give a name of Rikachu, a raywenderlich version of Pikachu.
 
-We can not perform the action we're testing on the generator, and assert that the result is equal to expectedCreature.
+We can now perform the action we're testing on the generator, and assert that the result is equal to expectedCreature.
 
 ```kotlin
  assertEquals(expectedCreature, creatureGenerator.generateCreature(attributes, name))

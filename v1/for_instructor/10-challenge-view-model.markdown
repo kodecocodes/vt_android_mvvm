@@ -78,4 +78,7 @@ Now we can build and run the app.
 
 And sure enough, we see the creatures we've added in previous videos displayed in the RecyclerView.
 
+We can also add a new creature and it gets added the list straight away.
+
 We can choose the menu option, and all creatures are removed from the repository.
+

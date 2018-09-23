@@ -9,7 +9,7 @@ Go ahead an pause the video, and take a shot at writing this new test. Unpause w
 
 ## Demo
 
-Add a new test method testCantSaveCreatureWithoutStrength()
+Add a new test method to CreatureViewModelTest named testCantSaveCreatureWithoutStrength()
 
 
 ```kotlin
@@ -25,6 +25,6 @@ Add a new test method testCantSaveCreatureWithoutStrength()
   }
 ```
 
-We've set the strength to zero, and then called canSaveCreature() and asserted that the return value is false.
+We've set the strength to zero, made sure we added a name to the creature, and then called canSaveCreature() on the viewmodel and asserted that the return value is false.
 
 Go ahead and run the tests to see that they all pass.

@@ -54,6 +54,8 @@ android:onClick="@{() -> viewmodel.saveCreature()}"
 
 The empty parens are a spot you could add an argument for the view being clicked, but we don't need that so we leave them empty.
 
+I'll leave it as a challenge for you to make the same changes to the landscape version of activity_creature.xml.
+
 In CreatureActivity, add a property to represent the binding between the view and viewmodel.
 
 ```kotlin

@@ -35,7 +35,7 @@ configureSpinnerAdpaters() just sets up the attribute spinners with static data 
 
 configureSpinnerListeners sets up listeners that get called when choices are made in the attribute drop downs. There are todos that we'll handle in the next video.
 
-configureEditText() sets upn a text changed listener for the name EditText, with another todo for us to implement.
+configureEditText() sets up a text changed listener for the name EditText, with another todo for us to implement.
 
 And configureClickListeners() sets up click listeners for showing the avatar chooser and for the save button.
 
