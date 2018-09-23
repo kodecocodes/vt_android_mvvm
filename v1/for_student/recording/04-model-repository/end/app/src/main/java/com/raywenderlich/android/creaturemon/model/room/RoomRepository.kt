@@ -38,7 +38,6 @@ import com.raywenderlich.android.creaturemon.model.CreatureRepository
 
 class RoomRepository : CreatureRepository {
   private val creatureDao: CreatureDao = CreaturemonApplication.database.creatureDao()
-
   private val allCreatures: LiveData<List<Creature>>
 
   init {
