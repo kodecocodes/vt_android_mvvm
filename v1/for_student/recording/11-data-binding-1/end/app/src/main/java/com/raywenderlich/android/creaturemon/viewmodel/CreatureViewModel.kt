@@ -40,11 +40,9 @@ class CreatureViewModel(private val generator: CreatureGenerator = CreatureGener
                         private val repository: CreatureRepository = RoomRepository()) : ViewModel() {
 
   private val creatureLiveData = MutableLiveData<Creature>()
-
   private val saveLiveData = MutableLiveData<Boolean>()
 
   fun getCreatureLiveData(): LiveData<Creature> = creatureLiveData
-
   fun getSaveLiveData(): LiveData<Boolean> = saveLiveData
 
   var name = ""
