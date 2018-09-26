@@ -5,7 +5,7 @@
 
 You first challenge for the course is to add another test on the CreatureViewModel to make sure that a creature without strength cannot be saved. The test will be very similar to the test we already wrote to make sure that a creature without a name cannot be saved.
 
-Go ahead an pause the video, and take a shot at writing this new test. Unpause when you're ready to see a solution.
+Go ahead and pause the video, and take a shot at writing this new test. Unpause when you're ready to see a solution.
 
 ## Demo
 

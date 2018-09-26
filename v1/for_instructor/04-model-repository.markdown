@@ -5,7 +5,7 @@
 
 In this video, we're going to setup Repository in which we'll save our Model data.
 
-Our concrete repository is going to be a Room database, and we're going to use LiveData from the Android Archicture Components library to retrieve data from the database. So first we need to setup our dependency on the Architecture Componets. This same dependency will also be used later when we use the ViewModel class from the library.
+Our concrete repository is going to be a Room database, and we're going to use LiveData from the Android Architecture Components library to retrieve data from the database. So first we need to setup our dependency on the Architecture Componets. This same dependency will also be used later when we use the ViewModel class from the library.
 
 ## Demo
 

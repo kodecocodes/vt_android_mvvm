@@ -1,7 +1,9 @@
 # Android MVVM
 # 10 - Challenge: View Model
 
-Your next challenge is to pu all you've learned so far together to build a view model for the app's first screen that should show the list of all creatures in the repository.
+## [Slide - Challenge]
+
+Your next challenge is to put all you've learned so far together to build a view model for the app's first screen that should show the list of all creatures in the repository.
 
 AllCreaturesActivity is setup already with a RecyclerView and adapter. You'll need to update the view holder in CreatureAdapter, used for the rows of the RecyclerView, to display the data for each creature.
 

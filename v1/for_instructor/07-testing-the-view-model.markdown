@@ -1,11 +1,13 @@
 # Android MVVM
 # 07 - Testing the View Model
 
+## Demo
+
 In testing the model layer, we used TDD.
 
 For the view model, we'll now add a test for the view model we've just created.
 
-Since the viewmodel depends on CreatureGenerator in the model layer, we'll create a mock creature generator in our view model test, to ensure that we're isolating the test to the view model.
+Since the viewmodel depends on CreatureGenerator in the model layer, we'll create a mock creature generator in our view model test, to ensure that we're isolating the test to the view model. We'll create the mock creature generator using the Mockito library.
 
 In the app module build.gradle, add the Mockito dependency to the testImplementation:
 
