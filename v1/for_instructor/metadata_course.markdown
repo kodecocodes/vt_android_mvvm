@@ -7,7 +7,7 @@ MVVM on Android
 In this course, you will learn how to build an Android app using the Model-View-ViewModel presentation architecture pattern, including testing and data binding.
 
 ### Difficulty Level:
-Beginner
+Intermediate
 
 ## Language, Editor and Platform versions used in this course:
 
