@@ -1,10 +1,13 @@
 # Course Metadata
 
 ### Course Title:
-Android MVVM
+MVVM on Android
 
 ### Course Description:
 In this course, you will learn how to build an Android app using the Model-View-ViewModel presentation architecture pattern, including testing and data binding.
+
+### Difficulty Level:
+Beginner
 
 ## Language, Editor and Platform versions used in this course:
 
