@@ -15,7 +15,7 @@ In this video, we'll refactor CreatureViewModel to use data binding to handle th
 
 To use data binding, you first need to enable it in your build.gradle file.
 
-In the app module build.gradle file, in the android block, use a dataBinding groovy call to enable data binding.
+In the app module build.gradle file, in the android block, use a dataBinding call to enable data binding.
 
 ```groovy
 dataBinding {
@@ -27,7 +27,7 @@ Then be sure to sync your Gradle files.
 
 Open up the portrait version of activity_creature.xml.
 
-To connect the XML file to the viewmodel, you need to wrap the root layout in a layout tag. With cursor on the root ConstraintLayout, hit option+return on Mac or Alt+Enter on PC and choose "Convert to data binding layout" from the popup menu.
+To connect the XML file to the viewmodel, you need to wrap the root layout in a layout tag. With the cursor on the root ConstraintLayout, hit option+return on Mac or Alt+Enter on PC and choose "Convert to data binding layout" from the popup menu.
 
 This will add a layout tag wrapper and also a data tag to the layout file.
 
@@ -52,9 +52,9 @@ Next, in the saveButton tag, add an onClick attribute that uses data binding syn
 android:onClick="@{() -> viewmodel.saveCreature()}"
 ```
 
-The empty parens are a spot you could add an argument for the view being clicked, but we don't need that so we leave them empty.
+The empty parentheses are a spot you could add an argument for the view being clicked, but we don't need that so we leave them empty.
 
-I'll leave it as a challenge for you to make the same changes to the landscape version of activity_creature.xml.
+I'll leave it as an unofficial challenge for you to make the same changes to the landscape version of activity_creature.xml.
 
 In CreatureActivity, add a property to represent the binding between the view and viewmodel.
 
@@ -64,21 +64,21 @@ lateinit var binding: ActivityCreatureBinding
 
 The ActivityCreatureBinding class was generated when we converted the layout to use data biding.
 
-We can use DataBindingUtil to replace the setContentView call in onCreate() and also set the value for the binding property.
+We can use DataBindingUtil to replace the usual setContentView call in onCreate() and also set the value for the binding property.
 
 ```kotlin
 binding = DataBindingUtil.setContentView(this, R.layout.activity_creature)
 ```
 
-We now need to set the value for the binding viewmodel to our CreatureViewModel property.
+We need to set the value for the binding viewmodel to our CreatureViewModel property.
 
 ```kotlin
 binding.viewmodel = viewModel
 ```
 
-When the user clicks the save button, the saveCreature() method will be called on the ViewModel. We need to communicate back to the activity when that save is complete.
+When the user clicks the save button, the saveCreature() method will be called on the ViewModel through data binding. We need to communicate back to the activity when that save is complete.
 
-Add a saveLiveData property to CreatureViewModel handle this communication. It's a LiveData odf Boolean.
+Add a saveLiveData property to CreatureViewModel to handle this communication. It's a LiveData of Boolean.
 
 ```kotlin
   private val saveLiveData = MutableLiveData<Boolean>()
@@ -103,7 +103,7 @@ We need to update the SaveCreature method to post to the saveLiveData when the c
   }
 ```
 
-In CreatureActivity, we can remove the click listener for the save button, since the button click is now beoing handled by data binding.
+In CreatureActivity, we can remove the click listener for the save button, since the button click is now being handled by data binding.
 
 REMOVE from CreatureActivity
 
@@ -118,7 +118,7 @@ REMOVE from CreatureActivity
     }
 ```
 
-In configureLiveDataObservers, we observer saveLiveData on the viewmodel, and in the observer we perform the same actions as before, either showing a success toasty and finishing, or showing an error toast.
+In configureLiveDataObservers, we observe saveLiveData on the viewmodel, and in the observer we perform the same actions as before, either showing a success toast and finishing, or showing an error toast.
 
 ```kotlin
     viewModel.getSaveLiveData().observe(this, Observer { saved ->
@@ -133,6 +133,6 @@ In configureLiveDataObservers, we observer saveLiveData on the viewmodel, and in
     })
 ```
 
-Build and run the app.
+Now build and run the app.
 
-Go ahead and add a new creature, to see that our refactored save action using data binding is working.
+And go ahead and add a new creature, to see that our refactored save action using data binding is working.

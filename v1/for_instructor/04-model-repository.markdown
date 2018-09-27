@@ -3,13 +3,13 @@
 
 ## [Slide 1 - Repository]
 
-In this video, we're going to setup Repository in which we'll save our Model data.
+In this video, we're going to setup a Repository in which we'll save our Model data.
 
-Our concrete repository is going to be a Room database, and we're going to use LiveData from the Android Architecture Components library to retrieve data from the database. So first we need to setup our dependency on the Architecture Componets. This same dependency will also be used later when we use the ViewModel class from the library.
+Our concrete repository is going to be a Room database, and we're going to use LiveData from the Android Architecture Components library to retrieve data from the database. So first we need to setup our dependency on the Architecture Components. This same dependency will also be used later when we use the ViewModel class from the library.
 
 ## Demo
 
-To add the dependecy, first open the project level build.gradle file, and add the version of the Architecture Components that we'll use, 1.1.1.
+To add the dependency, first open the project level build.gradle file, and add the version of the Architecture Components that we'll use, 1.1.1.
 
 
 ```gradle
@@ -37,7 +37,9 @@ interface CreatureRepository {
 
 The return value from the method to getAllCreatures is a LiveData list of creatures.
 
-In order to store our Creatures in Room, we'll make them a Room Entity in the creature_table table.
+In order to store our Creatures in Room, we'll make them a Room Entity using the creature_table table.
+
+We could have made a separate class for the Room entity, and then provided mapping functions to convert between Creatures and Creature entities, but for this simple app we'll just make Creature an entity directly. In a production app, you would likely want to create such a mapping layer between the model class and the repository.
 
 ```kotlin
 @Entity(tableName = "creature_table")
@@ -49,9 +51,9 @@ data class Creature(
 )
 ```
 
-We also set the name prooperty as the non-null primary key for a creature. We could have also made a separate class for the Room entity, and then provided mapping functions to convert between Creatures and Creature entities, but for this simple app we'll just make Creature an entity directly. In a production app, you would likely want to create such a mapping layer between the model class and the repository.
+We also set the name property as the non-null primary key for a creature.
 
-Since we're using Room, we need to use a CreatureDao for accessing our creatures. There's an empty Dao in the model room package. We now add insert, clear and getAllCreatures methods to the Dao.
+Since we're using Room, we need to use a CreatureDao or data access object to access our creatures. There's an empty Dao in the model room package. We now add insert, clear and getAllCreatures methods to the Dao.
 
 ```kotlin
 interface CreatureDao {
@@ -73,7 +75,7 @@ Now we need to open up CreatureDatabase and tell the database about our new Crea
 @TypeConverters(CreatureAttributesConverter::class)
 ```
 
-We've also added a type converter that for storing CreatureAttributes in the database. The CreatureAttributesConverter class was included in the starter project, and just converts the creature attributes for storage in room.
+We've also added a type converter for storing CreatureAttributes in the database. The CreatureAttributesConverter class was included in the starter project, and just converts the creature attributes for storage in Room.
 
 Next, open up the RoomRepository class, which is a concrete implementation of the CreatureRepositoy interface. The starter code has a property for the CreatureDao and some async tasks to perform the creature insert and delete in the background.
 
@@ -87,7 +89,7 @@ First we add an allCreatures property to the repository, which will ask the Dao 
 
 ```
 
-Then we add the methods from the CreatureRepository inteface, using the async tasks as needed.
+Then we add the methods from the CreatureRepository interface, using the async tasks as needed.
 
 ```kotlin
    override fun saveCreature(creature: Creature) {
@@ -121,6 +123,6 @@ As a last step for setting up the repository, we open up the application class i
         .build()
 ```
 
-We build and run app to make sure all is ok.
+We build and run app now to make sure all is ok.
 
 The app starts up with no errors, so it looks like we've setup Room correctly. In a later video, we'll finish the ability to save creatures into the repository from the app user inteface.

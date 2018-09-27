@@ -11,15 +11,15 @@ The app package has an Application subclass for the app, and a file with extensi
 
 The view package has Activity, Adapter, and other classes that make up the app UI. We'll talk about the View classes in a later video.
 
-In this video, we'll build out the classes in the model package. The starter code includes some code for persisting to Room database, which will do in a later video.
+In this video, we'll build out the classes in the model package. The starter project includes some code for persisting to a Room database, which we'll also do in a later video.
 
-There are some classes that we'll use for creature attributes, and some blank classes that we'll start filling out in this video.
+There are some classes that we'll use for creature attributes, and some empty classes that we'll start filling out in this video.
 
-I'll build a run the starter app now to get a sense of what we want the app to look like.
+I'll build and run the starter app now to get a sense of what we want the app to look like.
 
-The first screen will later be used to show the list of creatures we've created. 
+The first screen will later be used to show the list of creatures that  we've created. 
 
-There's a menu option we'll later use to clerar all creatures.
+There's a menu option we'll use later use to clear all creatures.
 
 Hitting the floating action button, we see the Add Creature screen, which is where we'll work for most of the course.
 
@@ -27,19 +27,19 @@ You see we can tap near the top of the screen to choose an avatar for the creatu
 
 We can assign a name to the creature, as well as intelligence, strength, and endurance attributes.
 
-There's a spot of the bottom to show the creature HitPoints value, based on the attributes.
+There's a spot at the bottom to show the creature HitPoints value, based on the chosen attributes.
 
 And there's a button we'll use to save the new creature.
 
 ## [Slide 1 - Model]
 
-In this video, we're going to build up the model classes we need for our Creature data. The main class is Creature, which has a set of CreatureAttributes and some other properties for each creature.
+We're going to build up the model classes we need for our Creature data. The main class is Creature, which has a set of CreatureAttributes and some other properties for each creature.
 
 ## Demo
 
 Back in Android Studio now, open up the CreatureAttributes file. This is a simple data class with an Int value for each of the three Creature attributes.
 
-Next, open the Creature file to see the blank Creature class in the starter project.
+Next, open the Creature file to see the empty Creature class in the starter project.
 
 Let's convert this model class to a data class, and add properties for the Creature attributes, hitPoints, name, and also an Int for the avatar drawable value.
 
@@ -52,7 +52,7 @@ data class Creature(
 )
 ```
 
-We need a class in our Model to generate a creature based on the values input by the user on the Add Creature screen.
+We're also going to need a class in our Model to generate a creature based on the values input by the user on the Add Creature screen.
 
 ## [Slide 2 - HitPoints]
 
@@ -60,11 +60,11 @@ In particular, we need to calculate the hitpoints value for a creature based on 
 
 ## [Slide 3 - TDD]
 
-We'll do a little Test-Driven Development and write our test first for the class that will generate a creature. If you've not done TDD before, just know that TDD is a test-first approach we're you peform a Red-Green-Refactor cycle. Red means you first write a failing test, and then write the code that makes the test Green by passing.
+For the CreatureGenerator, we'll use Test-Driven Development or TDD and write our test first for the class. If you've not done TDD before, just know that TDD is a test-first approach we're you peform a Red-Green-Refactor cycle. Red means you first write a failing test, and then write the code that makes the test Green by passing. You follow up with refactoring to make the code you've added as clean as possible.
 
 ## Demo
 
-In the test package, create a new package model.
+In the test package, create a new package named model.
 
 Now add a new Kotlin file to the package named CreatureGeneratorTest.
 
@@ -74,13 +74,13 @@ class CreatureGeneratorTest {
 }
 ```
 
-Next add a CreatureGenerator property to the test class. CreatureGenerator does not exist yet, so we'll see some compiler errors.
+Create the test class and add a CreatureGenerator property to it. CreatureGenerator does not exist yet, so we'll see some compiler errors.
 
 ```kotlin
    private lateinit var creatureGenerator: CreatureGenerator
 ```
 
-We'll initialize creatureGenerator in a setup() method tagged with the @Before annotation:
+We'll initialize creatureGenerator in a setup() method tagged with the @Before JUnit annotation:
 
 ```kotlin
    @Before
@@ -89,7 +89,7 @@ We'll initialize creatureGenerator in a setup() method tagged with the @Before a
   }
 ```
 
-Let's go into the model package in the app and create the CreatureGenerator class to clear the compiler error.
+Let's now go into the model package in the app and create the CreatureGenerator class to clear the compiler error.
 
 ```kotlin
 class CreatureGenerator
@@ -118,7 +118,7 @@ We can now perform the action we're testing on the generator, and assert that th
  assertEquals(expectedCreature, creatureGenerator.generateCreature(attributes, name))
 ```
 
-In the Creature class, create a shell of the generateCreature() method so that we can run the failing test.
+In the CreatureGenerator class, create a shell of the generateCreature() method so that we can run the failing test.
 
 ```kotlin
 
@@ -145,4 +145,4 @@ Now, we can add the hitPoints calculation to CreatureGenerator and return the ge
 
 Finally, we can run our CreatureGenerator test again, and see a green passing test.
 
-With our Creature model class setup, in the next video, we'll start building out the repository in which we'll save Creature data.
+With our Creature model class setup, in the next video, we'll start building out the repository in which we'll save the Creature data.

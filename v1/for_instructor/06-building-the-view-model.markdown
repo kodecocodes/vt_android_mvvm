@@ -3,7 +3,7 @@
 
 ## [Slide - ViewModel]
 
-With our Model and View in place, we'll now turn to creating a ViewModel for the Add Creature screen named CreatureActivity.
+With our Model and View in place, we'll now turn to creating a ViewModel for the Add Creature screen named CreatureViewModel.
 
 ## Demo
 
@@ -64,7 +64,7 @@ Now add a function updateCreatures() to set the creature value for the view mode
   }
 ```
 
-Add a method that the View layer will call when the user selects a value in the creature attibute drop downs.
+Next add a method that the View layer will call when the user selects a value in the creature attribute drop downs.
 
 ```kotlin
   fun attributeSelected(attributeType: AttributeType, position: Int) {
@@ -80,9 +80,9 @@ Add a method that the View layer will call when the user selects a value in the 
   }
 ```
 
-When an attribute is selected, we also call the udpateCreatrure method, which will pass the new creature along with it's selected attribute in the LiveData.
+When an attribute is selected, we also call the updateCreature method, which will pass the new creature to the View along with it's selected attribute in the LiveData.
 
-Add a similar function attribute for the view layer to call when the creature avatar is selected.
+Add a similar function for the view layer to call when the creature avatar is selected.
 
 ```kotlin
   fun drawableSelected(drawable: Int) {
@@ -93,19 +93,19 @@ Add a similar function attribute for the view layer to call when the creature av
 
 Now head over the the View layer, CreatureActivity.
 
-Add a property for the viewmodel.
+Add a lateinit property for the viewmodel.
 
 ```kotlin
 private lateinit var viewModel: CreatureViewModel
 ```
 
-When using Architecture Component view models, you use ViewModelProviders to connect to the viewmodel, so add that call into onCreate()
+When working with Architecture Component view models, you use ViewModelProviders to connect to the viewmodel, so add that call into onCreate()
 
 ```kotlin
 viewModel = ViewModelProviders.of(this).get(CreatureViewModel::class.java)
 ```
 
-Next, replace the TODOs in the configureSpinnerListeners methods with calls to the viewmodel method we added.
+Next, replace the TODOs in the configureSpinnerListeners methods with calls to the viewmodel method we just added.
 
 ```kotlin
 viewModel.attributeSelected(AttributeType.INTELLIGENCE, position)
@@ -121,7 +121,7 @@ In the text changed listener for the name edit text, replace the todo with a cal
 viewModel.name = s.toString()
 ```
 
-In the avatareClicked override, set the value of the viewmodel drawable using drawableSelected.
+In the avatarClicked override, set the value of the viewmodel drawable using drawableSelected.
 
 ```kotlin
 viewModel.drawableSelected(avatar.drawable)
@@ -133,7 +133,7 @@ Back up in configureUI(), add a call to hideTapLabel() if the drawable value on 
 if (viewModel.drawable != 0) hideTapLabel()
 ```
 
-Next we need to handle events being sent on the LiveData in the ViewModel. Add a new method configureLiveDataObservers() and observer creatureLiveData from the viewmodel.
+Next we need to handle events being sent over the LiveData from the ViewModel. Add a new method configureLiveDataObservers() and an observer of creatureLiveData from the viewmodel.
 
 ```kotlin
   private fun configureLiveDataObservers() {
@@ -167,7 +167,7 @@ Now add a call to configureLiveDataObservers() in onCreate():
 configureLiveDataObservers()
 ```
 
-Now we can build and run the app and create a new creature.
+We can build and run the app and create a new creature.
 
 Notice that when we select attributes in the drop downs, the hitpoints value is immediately updated using the value from the viewmodel.
 

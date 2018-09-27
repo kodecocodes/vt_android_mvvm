@@ -3,33 +3,33 @@
 
 ## Demo
 
-In testing the model layer, we used TDD.
+When testing the model layer, we used TDD.
 
-For the view model, we'll now add a test for the view model we've just created.
+For the view model, we'll now add an after-the-fact test for the view model we've just created.
 
 Since the viewmodel depends on CreatureGenerator in the model layer, we'll create a mock creature generator in our view model test, to ensure that we're isolating the test to the view model. We'll create the mock creature generator using the Mockito library.
 
-In the app module build.gradle, add the Mockito dependency to the testImplementation:
+In the app module build.gradle file, add the Mockito dependency to the testImplementation:
 
 
 ```gradle
   testImplementation "org.mockito:mockito-core:2.11.0"
 ```
 
-Since we're using ViewModel and LiveData from Android Architecture components, we also need to add the associated testing dependency.
+Since we're using ViewModel and LiveData from the Android Architecture components, we also need to add the associated testing dependency.
 
 ```grad
 testImplementation "android.arch.core:core-testing:$arch_comp_version"
 ```
 
-Open CreatureViewModel, select the class name, and hit option+return on Mac or alt+enter on PC to create an associated test class.
+Now open CreatureViewModel, select the class name, and hit option+return on Mac or alt+enter on PC to create an associated test class.
 
 ```kotlin
 class CreatureViewModelTest {
 }
 ```
 
-We confirm that the new file is in the viewmodel subpackage of the test right.
+We confirm that the new file is in the viewmodel subpackage of the test package.
 
 Add a property for the viewmodel being tested.
 
@@ -52,7 +52,7 @@ Next, we add a property for the mock creature generator for the view model.
   
 ```
 
-We add a setup method annotated with @Before, and in the method we init the mocks and setup the creatureViewModel property to be tested.
+We add a setup method annotated with @Before, and in the method we init the mocks and setup the creatureViewModel to be tested.
 
 ```kotlin
   @Before
@@ -62,7 +62,7 @@ We add a setup method annotated with @Before, and in the method we init the mock
   }
 ```
 
-Now we'll add a test for the creature being created in the view mode, testSetupCreature(). First we arrange the expected value as a stubCreature.
+Now we'll add a test for setting up the creature being generated in the view model, testSetupCreature(). First we arrange the expected value as a stubCreature.
 
 ```kotlin
   @Test
@@ -79,7 +79,7 @@ Now we'll add a test for the creature being created in the view mode, testSetupC
 
 We use the when method for the mock generator to return stubCreature.
 
-Now we perform the action being tested, which is a called to updateCreature on the viewmodel.
+Now we perform the action being tested, which is a call to updateCreature on the viewmodel.
 
 ```kotlin
  
@@ -87,7 +87,7 @@ Now we perform the action being tested, which is a called to updateCreature on t
    
 ```
 
-Now we assert that the viewmodel creature is the stubcreature we're expecting.
+And then we assert that the viewmodel creature is the stubcreature we're expecting.
 
 ```kotlin
     assertEquals(stubCreature, creatureViewModel.creature)

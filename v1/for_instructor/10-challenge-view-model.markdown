@@ -3,15 +3,15 @@
 
 ## [Slide - Challenge]
 
-Your next challenge is to put all you've learned so far together to build a view model for the app's first screen that should show the list of all creatures in the repository.
+Your next challenge is to put together all you've learned so far to build a view model for the app's first screen that should show the list of all creatures in the repository.
 
 AllCreaturesActivity is setup already with a RecyclerView and adapter. You'll need to update the view holder in CreatureAdapter, used for the rows of the RecyclerView, to display the data for each creature.
 
-In your view model, create a LiveData object for a List of creatures that AllCreaturesActivity will observe and in the observer, call updateCreatures(creatures) on the RecyclerView adapter CreatureAdapter.
+In your view model, create a LiveData object for a List of creatures that AllCreaturesActivity will observe and in the observer, call updateCreatures() on the RecyclerView adapter.
 
 As part of this challenge, you also want to implement the clear all creatures capability in the app menu.
 
-When you're ready, pause the video and take a shot at building out AllCreaturesViewModel and connecting it to AllCreaturesActivity. When you're ready, unpause to see my solution.
+Pause the video and take a shot at building out AllCreaturesViewModel and connecting it to AllCreaturesActivity. When you're ready, unpause to see my solution.
 
 ## Demo
 
@@ -52,7 +52,7 @@ And we connect to the viewmodel in onCreate() by using a call to ViewModelProvid
 viewModel = ViewModelProviders.of(this).get(AllCreaturesViewModel::class.java)
 ```
 
-In onCreate(), we also setup the observer on the all creatures LiveData. In the observer we update thge recyclerview adapter.
+In onCreate(), we also setup the observer on the all creatures LiveData. In the observer we update the recyclerview adapter.
 
 ```kotlin
     viewModel.getAllCreaturesLiveData().observe(this, Observer { creatures ->
@@ -76,11 +76,11 @@ itemView.name.text = creature.name
 itemView.hitPoints.text = creature.hitPoints.toString()
 ```
 
-Now we can build and run the app.
+Now we build and run the app.
 
-And sure enough, we see the creatures we've added in previous videos displayed in the RecyclerView.
+And sure enough, we see the creatures we've added previously displayed in the RecyclerView.
 
-We can also add a new creature and it gets added the list straight away.
+We can also add a new creature. And it gets added the list straight away.
 
 We can choose the menu option, and all creatures are removed from the repository.
 

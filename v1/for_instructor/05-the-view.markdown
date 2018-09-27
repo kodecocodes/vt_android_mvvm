@@ -3,11 +3,11 @@
 
 ## [Slide - View]
 
-Before we build out the view model, let's take a look at the view class and layout setup in the starter project.
+Before we build out the view model, let's take a look at the view class and layout setup in the starter project for the Add Creature screen.
 
 # Demo
 
-Here we have the app running and on the Add Creature screen. There's an ImageView at the top to select and show the Creature avatar. 
+Here we have the app running and are on the Add Creature screen. There's an ImageView at the top to select and show the Creature avatar. 
 
 There's an EditText for the Creature name.
 
@@ -25,7 +25,7 @@ You see here that the root layout is a ConstraintLayout, and each of the creatur
 
 The view class for the Add Creature screen is CreatureActivity, in the view.creature package. 
 
-CreatureActivity implements the AvatareAdapter.AvatarListener interface, which is just used for when a user selects an avatar in the avatar chooser.
+CreatureActivity implements the AvatarAdapter.AvatarListener interface, which is just used for when a user selects an avatar in the avatar chooser.
 
 In onCreate(), there are a number of configure methods for setting up the screen. 
 

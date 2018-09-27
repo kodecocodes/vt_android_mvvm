@@ -5,7 +5,7 @@
 
 In this video, we'll save new creatures into the repository we previously setup.
 
-We don't want the user to be able to save creatures with blank attributes, for example, a blank name. Let's write a test to make creatures with blank names can't be saved.
+We don't want the user to be able to save creatures with blank attributes, for example, a blank name. Let's write a view model test to make sure that creatures with blank names can't be saved.
 
 
 ```kotlin
@@ -21,7 +21,7 @@ We don't want the user to be able to save creatures with blank attributes, for e
   }
 ```
 
-The canSaveCreature method does not exist yet, so we'll add it next.
+The canSaveCreature method on the viewmodel does not exist yet, but we'll add it soon.
 
 In CreatureViewModel, add a repository property to connect the viewmodel to the creature repository.
 
@@ -38,7 +38,7 @@ In CreatureViewModelTest, add a mock for the creature repository.
   lateinit var repository: CreatureRepository
 ```
 
-And update thge setup method to add the mock into the constructor call for the view model.
+And update the setup method to add the mock repository into the constructor call for the view model.
 
 ```kotlin
 creatureViewModel = CreatureViewModel(mockGenerator, repository)
@@ -53,7 +53,7 @@ Now we add canSaveCreature() into the viewmodel.
   }
 ```
 
-We have a condition that none of intelligence, strength, endurance and drawable can be zero, and the name cannot be empty.
+We have a condition that none of intelligence, strength, endurance or drawable can be zero, and the name cannot be empty.
 
 Add a saveCreature() method to the viewmodel that calls canSaveCreature() and saves the creature to the repository if the creature can be saved.
 
@@ -69,9 +69,9 @@ Add a saveCreature() method to the viewmodel that calls canSaveCreature() and sa
 
 ```
 
-Now we'll run our new test for the viewmodel and see that they pass.
+Now we'll run our new test for the viewmodel and see that it passes.
 
-We'll leave writing more tests for other empty properties in the viewmodel as a challenge for you.
+I'll leave writing more tests for other empty properties in the viewmodel as a challenge for you in the next video.
 
 In CreatureActivity, in the click listener for the save button, we can now ask the view model to save the creature.
 
@@ -86,10 +86,10 @@ In CreatureActivity, in the click listener for the save button, we can now ask t
 
 If the creature saves, we show a toast and finish, otherwise, we show an error toast.
 
-Build and run the app now.
+Now we build and run the app.
 
 I'll create and save a couple of new creatures.
 
 If I try saving a creature with no name, I see the error toast telling me to fill out all fields.
 
-We can use Device File Explorer to see that the Room database file for storing creratures has been created. In a later video, we'll pull creatures out of the database for display.
+We can use Device File Explorer to see that the Room database file for storing creatures has been created. In a later video, we'll pull creatures out of the database for display.

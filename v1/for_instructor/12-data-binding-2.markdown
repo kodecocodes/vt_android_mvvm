@@ -1,7 +1,7 @@
 # Android MVVM
 # 12 - Data Binding Part 2
 
-For our last video in this MVVM course, we'll use data binding to connect the name EditText on the Add Creature screen to the view model.
+For our last exercise in this MVVM course, we'll use data binding to connect the name EditText on the Add Creature screen to the view model.
 
 We've already added the viewmodel as a data value in the activity_creature.xml file. Now add an android:text attribute to the nameEditText view, using the @= data binding syntax.
 
@@ -29,13 +29,13 @@ Since we're already extending the architecture component ViewModel class, we'll 
 
 ## Demo
 
-In CreatureViewModel, wrape the name property with ObservableField, and give it a default value of an empty String.
+In CreatureViewModel, wrap the name property with ObservableField, and give it a default value of an empty String.
 
 ```kotlin
 var name = ObservableField<String>("")
 ```
 
-In updateCreature(), we need to use get() on the name, and use the ElvisOperator to handle null values.
+In updateCreature(), we need to use get() on the name, and use the Elvis Operator to handle null values.
 
 ```kotlin
   fun updateCreature() {
@@ -47,7 +47,7 @@ In updateCreature(), we need to use get() on the name, and use the ElvisOperator
 
 Our canSaveCreature method will prevent us from saving creatures with blank names into the database.
 
-But we do need to update canSaveCreature() to convert the extract the from the observable field and use let to handle the null case. 
+But we do need to update canSaveCreature() to extract the string from the observable field and use let to handle the null case. 
 
 ```kotlin
   fun canSaveCreature(): Boolean {
@@ -68,7 +68,7 @@ REMOVE
     configureEditText()
 ```
 
-We need to update CreatureViewModelTest to handle the switch to ObservableField.
+We also need to update CreatureViewModelTest to handle the switch to ObservableField.
 
 We use set() to set the name values in two of our tests
 
@@ -80,8 +80,8 @@ creatureViewModel.name.set("")
 creatureViewModel.name.set("My Creature")
 ```
 
-Let's run the view model tests again to make sure they're still all passing.
+Let's run the view model tests again to make sure they're all still passing.
 
-Ok, now we can build and run app one last time.
+Ok, now we can build and run the app one last time.
 
-Let's add one more creature and make sure our name two-way data binding is working as expected.
+Let's add one more creature and make sure that our two-way data binding for name is working as expected.
